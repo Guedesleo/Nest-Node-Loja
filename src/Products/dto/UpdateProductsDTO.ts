@@ -23,13 +23,13 @@ export class UpdateProductsDTO {
   @IsString()
   @IsNotEmpty({ message: 'Nome do produto não pode ser vazio' })
   @IsOptional()
-  nome: string;
+  name: string;
 
   @IsNumber({ maxDecimalPlaces: 2, allowNaN: false, allowInfinity: false })
   @IsOptional()
   @Min(1, { message: 'O valor precisa ser maior que zero' })
   @IsOptional()
-  valor: number;
+  value: number;
 
   @IsNumber()
   @Min(0, { message: 'Quantidade mínima inválida' })
@@ -38,7 +38,7 @@ export class UpdateProductsDTO {
 
   @IsString()
   @IsOptional()
-  descricao: string;
+  description: string;
 
   @ValidateNested()
   @IsArray()

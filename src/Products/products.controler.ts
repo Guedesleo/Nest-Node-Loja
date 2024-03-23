@@ -3,10 +3,14 @@ import { ProductsRepository } from './products.respository';
 import { randomUUID } from 'crypto';
 import { ProductsEntity } from './products.entity';
 import { UpdateProductsDTO } from './dto/UpdateProductsDTO';
+import { ProductsService } from './products.service';
 
 @Controller('/products')
 export class ProductsController {
-  constructor(private productsRepository: ProductsRepository) {}
+  constructor(
+    private productsRepository: ProductsRepository,
+    private readonly productsSerivce:  ProductsService
+    ) {}
 
   @Post()
   async create(@Body() bodyusers) {
@@ -23,18 +27,18 @@ export class ProductsController {
     // produto.characteristics = bodyusers.characteristics;
     // produto.imagens = bodyusers.imagens;
 
-    const produtoCadastrado = this.productsRepository.salvar(produto);
+    const produtoCadastrado = this.productsSerivce.createProducts(produto);
     return produtoCadastrado;
   }
 
   @Get()
   async LisUsers() {
-    return this.productsRepository.list();
+    return this.productsSerivce.listProducts();
   }
 
   @Put('/:id')
   async updateBody(@Param('id') id: string, @Body() updateUser: UpdateProductsDTO){
-    const userUpdate =  await this.productsRepository.update(id, updateUser)
+    const userUpdate =  await this.productsSerivce.updateProducts(id, updateUser)
 
     return{
       user: userUpdate,
@@ -44,7 +48,7 @@ export class ProductsController {
 
   @Delete('/:id')
   async deleteUsers(@Param('id') id: string) {
-    const userDelete = await this.productsRepository.delete(id);
+    const userDelete = await this.productsSerivce.deleteProducts(id);
 
     return {
       user: userDelete,

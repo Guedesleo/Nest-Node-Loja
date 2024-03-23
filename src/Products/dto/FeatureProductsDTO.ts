@@ -1,4 +1,4 @@
 export class FeatureProductsDTO {
-  nome: string;
-  descricao: string;
+  name: string;
+  description: string;
 }

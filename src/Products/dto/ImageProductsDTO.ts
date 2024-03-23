@@ -1,4 +1,5 @@
 export class ImageProductsDTO {
+  id:string;
   url: string;
-  descricao: string;
+  description: string;
 }
