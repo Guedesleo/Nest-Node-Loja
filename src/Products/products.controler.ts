@@ -14,14 +14,14 @@ export class ProductsController {
 
 
     produto.id = randomUUID();
-    produto.nome = bodyusers.nome;
+    produto.name = bodyusers.name;
     produto.usuarioId = bodyusers.usuarioId;
-    produto.valor = bodyusers.valor;
-    produto.quantidade = bodyusers.quantidade;
-    produto.descricao = bodyusers.descricao;
-    produto.categoria = bodyusers.categoria;
-    produto.caracteristicas = bodyusers.caracteristicas;
-    produto.imagens = bodyusers.imagens;
+    produto.value = bodyusers.value;
+    produto.quantity = bodyusers.quantity;
+    produto.description = bodyusers.description;
+    produto.category = bodyusers.category;
+    // produto.characteristics = bodyusers.characteristics;
+    // produto.imagens = bodyusers.imagens;
 
     const produtoCadastrado = this.productsRepository.salvar(produto);
     return produtoCadastrado;
