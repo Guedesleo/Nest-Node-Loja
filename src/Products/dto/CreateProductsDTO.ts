@@ -5,19 +5,21 @@ import { ImageProductsDTO } from './ImageProductsDTO';
 
 export class CriaProdutoDTO {
   @IsUUID(undefined, { message: 'ID de usuário inválido' })
-  usuarioId: string;
-  nome: string;
-  valor: number;
-  quantidade: number;
-  descricao: string;
+  usersId: string;
+  name: string;
+  value: number;
+  quantity: number;
+  description: string;
+
   @ValidateNested()
   @IsArray()
   @Type(() => FeatureProductsDTO)
-  caracteristicas: FeatureProductsDTO[];
+  characteristics: FeatureProductsDTO[];
 
   @ValidateNested()
   @IsArray()
   @Type(() => ImageProductsDTO)
   imagens: ImageProductsDTO[];
-  categoria: string;
+
+  category: string;
 }

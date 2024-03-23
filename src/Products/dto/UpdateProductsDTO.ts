@@ -45,7 +45,7 @@ export class UpdateProductsDTO {
   @ArrayMinSize(3)
   @Type(() => FeatureProductsDTO)
   @IsOptional()
-  caracteristicas: FeatureProductsDTO[];
+  characteristics: FeatureProductsDTO[];
 
   @ValidateNested()
   @IsArray()
@@ -57,5 +57,5 @@ export class UpdateProductsDTO {
   @IsString()
   @IsNotEmpty({ message: 'Categoria do produto não pode ser vazia' })
   @IsOptional()
-  categoria: string;
+  category: string;
 }

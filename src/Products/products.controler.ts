@@ -24,8 +24,8 @@ export class ProductsController {
     produto.quantity = bodyusers.quantity;
     produto.description = bodyusers.description;
     produto.category = bodyusers.category;
-    // produto.characteristics = bodyusers.characteristics;
-    // produto.imagens = bodyusers.imagens;
+    produto.characteristics = bodyusers.characteristics;
+    produto.imagens = bodyusers.imagens;
 
     const produtoCadastrado = this.productsSerivce.createProducts(produto);
     return produtoCadastrado;
