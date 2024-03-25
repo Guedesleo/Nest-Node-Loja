@@ -1,4 +1,8 @@
+import { ProductsEntity } from "../products.entity";
+
 export class FeatureProductsDTO {
-  nome: string;
-  descricao: string;
+  id: string;
+  name: string;
+  description: string;
+  products: ProductsEntity
 }
